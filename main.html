@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Angular JS Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js">
+    </script>
+    <link href="Css/Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    
+    <div ng-app="mainApp" ng-controller="wiController">        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Search Results</h6>
+                        <div id="content">
+                            <ul class="timeline">
+                                <li ng-repeat="wi in workitems.wis" class="event" data-date="{{wi.name}}">
+                                    <h3>Start Date: {{ wi.startdate}}</h3>
+                                    <h3>End Date  : {{ wi.enddate}}</h3>
+                                    <h3>Status    : {{ wi.stat}}</h3>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var mainApp = angular.module("mainApp", []);
+
+        mainApp.controller('wiController', function ($scope) {
+            $scope.workitems = {
+                wis: [
+                    { name: 'RLOS-000001-SIB', startdate:'01-01-2021', enddate: '10-01-2021', stat:'Sanctioned' },
+                    { name: 'LEGAL-000001-SIB', startdate:'10-01-2021', enddate: '15-01-2021', stat:'Sanctioned' },
+                    { name: 'LOD-000001-SIB', startdate:'15-01-2021', enddate: '', stat:'Sanctioned' },
+                ],
+               
+            };
+        });
+    </script>
+
+</body>
+
+</html>
